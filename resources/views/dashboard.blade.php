@@ -10,7 +10,7 @@
                         Dashboard
                     </div>
                     <h2 class="page-title">
-                        Kelurahan Subang Jaya
+                        Saung Abah Sukabumi
                     </h2>
                 </div>
             </div>
@@ -621,7 +621,7 @@
             <div class="col-lg-12">
                 <div class="card">
                   <div class="card-body">
-                    <h3 class="card-title">Jumlah Penduduk</h3>
+                    <h3 class="card-title">Jumlah Pemesanan</h3>
                     <div id="chart-mentions" class="chart-lg"></div>
                   </div>
                 </div>

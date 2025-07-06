@@ -15,6 +15,12 @@ class ProdukController extends Controller
             $data = Produk::latest()->get();
             return DataTables::of($data)
                 ->addIndexColumn()
+                 ->addColumn('kategori', function ($row) {
+                return $row->kategori ?? '-';
+            })
+            ->addColumn('paket', function ($row) {
+                return $row->paket ?? '-';
+            })
                 ->addColumn('aksi', function($row){
                     $editUrl = route('produk.edit', $row->id);
                     $deleteForm = '
@@ -50,6 +56,8 @@ class ProdukController extends Controller
             'harga' => 'required|integer',
             'foto' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'deskripsi' => 'nullable|string',
+            'kategori' => 'required|string',
+            'paket' => 'required|string',
         ]);
 
         // Simpan gambar menggunakan metode store()
@@ -64,6 +72,8 @@ class ProdukController extends Controller
             'harga' => $request->harga,
             'foto' => $fotoPath,
             'deskripsi' => $request->deskripsi,
+            'kategori' => $request->kategori,
+            'paket' => $request->paket, 
         ]);
 
         return redirect()->route('produk.index')->with('success', 'Produk berhasil ditambahkan.');
@@ -88,9 +98,11 @@ class ProdukController extends Controller
             'harga' => 'required|integer',
             'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'deskripsi' => 'nullable|string',
+            'kategori' => 'required|string',
+            'paket' => 'required|string',
         ]);
 
-        $data = $request->only('nama', 'jenis', 'status', 'harga', 'deskripsi');
+        $data = $request->only('nama', 'jenis', 'status', 'harga', 'deskripsi', 'kategori', 'paket');
 
         // Jika ada gambar baru
         if ($request->hasFile('foto')) {

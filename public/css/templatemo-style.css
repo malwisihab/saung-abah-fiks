@@ -372,7 +372,7 @@ http://www.templatemo.com/tm-515-eatery
     border: 2px solid #d9d9d9;
     background: transparent;
     display: block;
-    -webkit-backface-visibility: visible;
+    -webkit-backface-visibility: visible;         
     transition: opacity 200ms ease;
     border-radius: 30px;
   }
@@ -395,23 +395,23 @@ http://www.templatemo.com/tm-515-eatery
   }
 
   .slider .item {
-    background-position: inherit;
+    background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: local;
+    background-attachment: scroll;
     background-size: cover;
     height: 650px;
   }
 
   .slider .item-first {
-    background-image: url(../images/slider-image1.jpg);
+    background-image: url(../images/Halaman_Depan1.jpg);
   }
 
   .slider .item-second {
-    background-image: url(../images/slider-image2.jpg);
+    background-image: url(../images/Halaman_Depan2.jpg);
   }
 
   .slider .item-third {
-    background-image: url(../images/slider-image3.jpg);
+    background-image: url(../images/Halaman_Depan3.jpg);
   }
 
   .slider .item-second .section-btn {

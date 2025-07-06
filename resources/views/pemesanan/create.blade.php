@@ -8,260 +8,196 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #4361ee;
-            --primary-dark: #3a56d4;
-            --secondary: #f8f9fa;
-            --light: #ffffff;
-            --dark: #212529;
-            --border: #e9ecef;
-            --success: #4bb543;
-        }
+    --primary: #e63946; /* Merah terang dari tombol login */
+    --primary-dark: #d62828;
+    --background-glass: rgba(255, 255, 255, 0.2);
+    --blur: blur(12px);
+    --light: #ffffff;
+    --dark: #1d1d1d;
+    --border: rgba(255, 255, 255, 0.3);
+}
 
-        body {
-            background-color: #f5f7fb;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+body {
+    /* background: url('/path-to-your-background.jpg') no-repeat center center fixed; */
+    background: #f3f4f6; /* fallback warna background polos abu muda */
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product-image {
+    height: 120px;
+    width: 100%;
+    max-width: 300px; /* tambahkan ini */
+    margin: 0 auto; /* biar center */
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
 
-        .pos-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+.pos-container {
+    width: 95%;
+    max-width: 1300px;
+    background: var(--background-glass);
+    backdrop-filter: var(--blur);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    padding: 30px;
+}
 
-        .pos-card {
-            border-radius: 10px;
-            border: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-        }
+.pos-card {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}
 
-        .pos-card-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 15px 20px;
-            font-weight: 600;
-            font-size: 1.25rem;
-        }
+.pos-card-header {
+    background-color: transparent;
+    color: var(--dark);
+    padding: 15px 20px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.pos-card-header .badge {
+    background-color: rgba(230, 57, 70, 0.2); /* warna badge table */
+    color: var(--primary); /* warna teks badge */
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 8px 12px;
+}
+.form-label {
+    color: white;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
 
-        .pos-card-body {
-            padding: 25px;
-            background-color: var(--light);
-        }
+.form-select,
+.form-control {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 1rem;
+    color: var(--dark); /* warna teks */
+    backdrop-filter: var(--blur); /* efek glass */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
 
-        .form-label {
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 8px;
-        }
 
-        .form-control, .form-select {
-            border-radius: 8px;
-            padding: 10px 15px;
-            border: 1px solid var(--border);
-        }
 
-        .btn-pos {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 12px 20px;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
+.product-card {
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s;
+    cursor: pointer;
+}
 
-        .btn-pos:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+.product-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
 
-        .btn-pos:active {
-            transform: translateY(0);
-        }
+.product-card.selected {
+    border: 2px solid var(--primary);
+    background-color: rgba(230, 57, 70, 0.1);
+}
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
+.btn-pos,
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
+    border-radius: 25px;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    transition: 0.3s ease-in-out;
+    border: none;
+}
 
-        .product-card {
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            overflow: hidden;
-            transition: all 0.2s;
-            cursor: pointer;
-            background-color: white;
-        }
+.btn-pos:hover,
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.02);
+}
 
-        .product-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-            border-color: var(--primary);
-        }
+.payment-method {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    padding: 15px;
+    transition: 0.3s;
+    cursor: pointer;
+    text-align: center;
+}
+.payment-method-desc {
+    color: #1d1d1d;
+}
+h5,
+.summary-row span {
+    color: #1d1d1d;
+}
 
-        .product-card.selected {
-            border: 2px solid var(--primary);
-            background-color: rgba(67, 97, 238, 0.05);
-        }
+.payment-method.selected {
+    border: 2px solid var(--primary);
+    background-color: rgba(230, 57, 70, 0.1);
+}
 
-        .product-image {
-            height: 120px;
-            object-fit: cover;
-            width: 100%;
-        }
+.selected-items,
+.summary-card {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
 
-        .product-info {
-            padding: 12px;
-        }
+.empty-state {
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
 
-        .product-name {
-            font-weight: 600;
-            margin-bottom: 5px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+.item-controls button,
+.qty-btn {
+    background-color: var(--primary);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+}
 
-        .product-price {
-            color: var(--primary);
-            font-weight: 700;
-        }
+.remove-item {
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
 
-        .selected-items {
-            background-color: white;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            padding: 15px;
-            margin-top: 20px;
-        }
+.item-price {
+    font-weight: bold;
+    color: var(--dark);
+}
+.product-name {
+    color: #1d1d1d;
+    font-weight: 600;
+}
 
-        .selected-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border);
-        }
+.product-price {
+    color: var(--primary);
+    font-weight: bold;
+}
 
-        .selected-item:last-child {
-            border-bottom: none;
-        }
 
-        .item-name {
-            font-weight: 500;
-        }
-
-        .item-controls {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .item-qty {
-            width: 50px;
-            text-align: center;
-            border: 1px solid var(--border);
-            border-radius: 5px;
-            padding: 5px;
-        }
-
-        .qty-btn {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        .remove-item {
-            color: #dc3545;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-
-        .payment-methods {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .payment-method {
-            flex: 1;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 15px;
-            cursor: pointer;
-            transition: all 0.2s;
-            background-color: white;
-        }
-
-        .payment-method:hover {
-            border-color: var(--primary);
-        }
-
-        .payment-method.selected {
-            border-color: var(--primary);
-            background-color: rgba(67, 97, 238, 0.05);
-        }
-
-        .payment-method i {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .payment-method-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .payment-method-desc {
-            color: #6c757d;
-            font-size: 0.9rem;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 30px;
-            color: #6c757d;
-        }
-
-        .empty-state i {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: #adb5bd;
-        }
-
-        .summary-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 20px;
-            border: 1px solid var(--border);
-            margin-top: 20px;
-        }
-
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .summary-total {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--primary);
-            border-top: 1px solid var(--border);
-            padding-top: 10px;
-            margin-top: 10px;
-        }
     </style>
 </head>
 <body>
@@ -297,7 +233,13 @@
                                 <label class="form-label">Select Products</label>
                                 <div class="product-grid">
                                     @foreach($produk as $item)
-                                        <div class="product-card" data-id="{{ $item->id }}" data-harga="{{ $item->harga }}" data-nama="{{ $item->nama }}">
+<div class="product-card" 
+     data-id="{{ $item->id }}" 
+     data-harga="{{ $item->harga }}" 
+     data-nama="{{ $item->nama }}"
+     data-kategori="{{ $item->kategori ?? 'N/A' }}"
+     data-paket="{{ $item->paket ?? 'N/A' }}"
+     data-deskripsi="{{ $item->deskripsi ?? 'Tidak ada deskripsi' }}">
                                             <img src="{{ asset('storage/' . $item->foto) }}" class="product-image" alt="{{ $item->nama }}">
                                             <div class="product-info">
                                                 <div class="product-name">{{ $item->nama }}</div>
@@ -352,12 +294,13 @@
                                 </div>
                             </div>
 
-                            <!-- Submit Button -->
-                            <button type="submit" class="btn btn-pos w-100 mt-4">
-                                <i class="fas fa-paper-plane me-2"></i> Place Order
-                            </button>
-                        </div>
-                    </div>
+                         <div class="d-grid mt-4">
+    <button type="submit" class="btn btn-primary btn-lg">
+        <i class="fas fa-paper-plane me-2"></i> Place Order
+    </button>
+</div>
+
+
 
                     <!-- Hidden inputs for products -->
                     <div id="product-inputs"></div>
@@ -378,6 +321,10 @@
                 const productId = $(this).data('id');
                 const productName = $(this).data('nama');
                 const productPrice = $(this).data('harga');
+                const productKategori = $(this).data('kategori');
+const productPaket = $(this).data('paket');
+const productDeskripsi = $(this).data('deskripsi');
+
 
                 // Check if product already selected
                 const existingProduct = selectedProducts.find(p => p.id === productId);
@@ -389,6 +336,10 @@
                         id: productId,
                         name: productName,
                         price: productPrice,
+                        kategori: productKategori,
+paket: productPaket,
+deskripsi: productDeskripsi,
+
                         quantity: 1
                     });
                 }
@@ -421,7 +372,12 @@
 
                     html += `
                         <div class="selected-item" data-id="${product.id}">
-                            <div class="item-name">${product.name}</div>
+<div class="item-name">
+    ${product.name}<br>
+    <small class="text-muted">Kategori: ${product.kategori}</small><br>
+    <small class="text-muted">Paket: ${product.paket}</small><br>
+    <small class="text-muted">${product.deskripsi}</small>
+</div>
                             <div class="item-controls">
                                 <button class="qty-btn minus" data-index="${index}">-</button>
                                 <input type="number" class="item-qty" value="${product.quantity}" min="1" data-index="${index}">

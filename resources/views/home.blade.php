@@ -58,7 +58,6 @@
                     <ul class="nav navbar-nav navbar-nav-first">
                          <li><a href="#home" class="smoothScroll">Beranda</a></li>
                          <li><a href="#about" class="smoothScroll">Tentang</a></li>
-                         <li><a href= ""       class="smoothScroll">Pesan</a></li>
                          <li><a href="#menu" class="smoothScroll">Fasilitas</a></li>
                          <li><a href="#contact" class="smoothScroll">Kontak</a></li>
                     </ul>
@@ -66,7 +65,7 @@
                     <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ route('login') }}" class="smoothScroll">Login</a></li>
 
-                    <a href="{{ route('reservasi') }}" class="section-btn">Reserve a table</a>
+                    <a href="{{ route('reservasi') }}" class="section-btn">Pemesanan</a>
 
                     </ul>
                </div>
@@ -332,26 +331,6 @@
                               </a>
                          </div>
                     </div>
-
-                    <div class="col-md-4 col-sm-6">
-                         <!-- MENU THUMB -->
-                         <div class="menu-thumb">
-                              <a href="images/menu-image6.jpg" class="image-popup" title="Project title">
-                                   <img src="images/menu-image6.jpg" class="img-responsive" alt="">
-
-                                   <div class="menu-info">
-                                        <div class="menu-item">
-                                             <h3>Big Flat Fried</h3>
-                                             <p>Pepper / Crispy</p>
-                                        </div>
-                                        <div class="menu-price">                                         
-                                        </div>
-                                   </div>
-                              </a>
-                         </div>
-                    </div>
-
-
                </div>
           </div>
      </section>

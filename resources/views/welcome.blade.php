@@ -16,7 +16,7 @@
 
      <!-- CSS -->
      <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
      <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
      <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
      <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
@@ -56,9 +56,9 @@
                     <ul class="nav navbar-nav navbar-nav-first">
                          <li><a href="#home" class="smoothScroll">Beranda</a></li>
                          <li><a href="#about" class="smoothScroll">Tentang</a></li>
-                         <li><a href="" class="smoothScroll">Pesan</a></li>
                          <li><a href="#menu" class="smoothScroll">Fasilitas</a></li>
-                         <li><a href="#contact" class="smoothScroll">Kontak</a></li>
+                         <li><a href="#contact" class="smoothScroll">Alamat</a></li>
+                         <li><a href="{{ route('detail.saung') }}">Detail Saung</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -69,7 +69,7 @@
                                    <li><a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a></li>
                               @endauth
                          @endif
-                         <li><a href="{{ url('pemesanan/create') }}" class="section-btn">Reserve a table</a></li>
+                         <li><a href="{{ url('pemesanan/create') }}" class="section-btn">Pemesanan</a></li>
                     </ul>
                </div>
           </div>
@@ -95,7 +95,7 @@
                          <div class="caption">
                               <div class="container">
                                    <div class="col-md-8 col-sm-12">
-                                        <h1>Restoran Dengan Fasilitias yang Lengkap dan Nyaman</h1>
+                                        <h1>Restoran Dengan Fasilitas yang Lengkap dan Nyaman</h1>
                                         <a href="#menu" class="section-btn btn btn-default smoothScroll">Lihat Fasilitas</a>
                                    </div>
                               </div>
@@ -136,11 +136,14 @@
                          </div>
                     </div>
 
-                    <div class="col-md-6 col-sm-12">
-                         <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
-                              <!-- <img src="images/about-image.jpg" class="img-responsive" alt="">  --> ganti nanti sama gambar owner atau yang berkaitan dengan saung abah
-                         </div>
-                    </div>
+                     <div class="col-md-6 col-sm-12 d-flex align-items-start">
+        <div class="about-image w-100" style="overflow: hidden;">
+            <img src="images/image.jpg"
+                 alt=""
+                 class="img-fluid"
+                 style="width: 100%; height: 100%; object-fit: cover; max-height: 500px;">
+        </div>
+    </div>
                </div>
           </div>
      </section>
@@ -151,17 +154,17 @@
                <div class="row">
                     <div class="col-md-12 col-sm-12">
                          <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
-                              <h2>Menu Andalan Kami</h2>
-                              <h4>Murah dan Lezat</h4>
+                              <h2>Signature Menu</h2>
+                              <h4>Saung Abah Sukabumi</h4>
                          </div>
                     </div>
 
                     <div class="col-md-4 col-sm-4">
                          <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
-                              <img src="images/team-image1.jpg" class="img-responsive" alt="">
+                              <img src="images/patin_bakar.png" class="img-responsive" alt="">
                                    <div class="team-hover">
                                         <div class="team-item">
-                                             <h4>Duis vel lacus id magna mattis vehicula</h4>
+                                             <h4>Patin Bakar</h4>
                                              <ul class="social-icon">
                                                   <li><a href="#" class="fa fa-linkedin-square"></a></li>
                                                   <li><a href="#" class="fa fa-envelope-o"></a></li>
@@ -170,17 +173,17 @@
                                    </div>
                          </div>
                          <div class="team-info">
-                              <h3>New Catherine</h3>
-                              <p>Kitchen Officer</p>
+                              <h3>Patin Bakar</h3>
+                              <p>Patin bakar dengan bumbu rempah pilihan yang meresap hingga ke dalam dagingnya, dipanggang sempurna untuk menghasilkan cita rasa gurih, pedas, dan smoky yang memanjakan lidah.</p>
                          </div>
                     </div>
 
                     <div class="col-md-4 col-sm-4">
                          <div class="team-thumb wow fadeInUp" data-wow-delay="0.4s">
-                              <img src="images/team-image2.jpg" class="img-responsive" alt="">
+                              <img src="images/cumi_bumbu_padang.png" class="img-responsive" alt="">
                                    <div class="team-hover">
                                         <div class="team-item">
-                                             <h4>Cras suscipit neque quis odio feugiat</h4>
+                                             <h4>cumi bumbu padang</h4>
                                              <ul class="social-icon">
                                                   <li><a href="#" class="fa fa-instagram"></a></li>
                                                   <li><a href="#" class="fa fa-flickr"></a></li>
@@ -189,17 +192,18 @@
                                    </div>
                          </div>
                          <div class="team-info">
-                              <h3>Lindsay Perlen</h3>
-                              <p>Owner &amp; Manager</p>
+                              <h3>cumi bumbu padang</h3>
+                              <p>Cumi segar dimasak dengan bumbu Padang khas yang kaya akan rempah dan sensasi pedas menggigit, menciptakan rasa kuat dan lezat khas masakan Sunda.</p>
+
                          </div>
                     </div>
 
                     <div class="col-md-4 col-sm-4">
                          <div class="team-thumb wow fadeInUp" data-wow-delay="0.6s">
-                              <img src="images/team-image3.jpg" class="img-responsive" alt="">
+                              <img src="images/gurame_bumbu_rujak.png" class="img-responsive" alt="">
                                    <div class="team-hover">
                                         <div class="team-item">
-                                             <h4>Etiam auctor enim tristique faucibus</h4>
+                                             <h4>gurame bumbu rujak</h4>
                                              <ul class="social-icon">
                                                   <li><a href="#" class="fa fa-github"></a></li>
                                                   <li><a href="#" class="fa fa-google"></a></li>
@@ -208,8 +212,8 @@
                                    </div>
                          </div>
                          <div class="team-info">
-                              <h3>Isabella Grace</h3>
-                              <p>Pizza Specialist</p>
+                              <h3>gurame bumbu rujak</h3>
+                              <p>Gurame segar digoreng garing lalu disiram dengan bumbu rujak khas yang kaya rempah dan rasa pedas manis, menciptakan harmoni cita rasa Nusantara dalam setiap suapan.</p>
                          </div>
                     </div>
                </div>
@@ -222,15 +226,15 @@
                <div class="row">
                     <div class="col-md-12 col-sm-12">
                          <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
-                              <h2>Fasilitas Lengkap dan Terjaga Kebersihanya</h2>
+                              <h2>Fasilitas Utama Saung Abah</h2>
                          </div>
                     </div>
 
                     <div class="col-md-4 col-sm-6">
                          <!-- MENU THUMB -->
                          <div class="menu-thumb">
-                              <a href="images/menu-image1.jpg" class="image-popup" title="American Breakfast">
-                                   <img src="images/menu-image1.jpg" class="img-responsive" alt="">
+                              <a href="images/Mushola1.jpg" class="image-popup" title="Mushola Pertama">
+                                   <img src="images/Mushola1.jpg" class="img-responsive" alt="">
                                    <div class="menu-info">
                                         <div class="menu-item">
                                              <h3>MUSHOLA</h3>
@@ -247,8 +251,8 @@
                     <div class="col-md-4 col-sm-6">
                          <!-- MENU THUMB -->
                          <div class="menu-thumb">
-                              <a href="images/menu-image2.jpg" class="image-popup" title="Self-made Salad">
-                                   <img src="images/menu-image2.jpg" class="img-responsive" alt="">
+                              <a href="images/Ruang_Rapat.jpg" class="image-popup" title="Ruang Rapat ">
+                                   <img src="images/Ruang_Rapat.jpg" class="img-responsive" alt="">
                                    <div class="menu-info">
                                         <div class="menu-item">
                                              <h3>Ruang Rapat</h3>
@@ -265,8 +269,8 @@
                     <div class="col-md-4 col-sm-6">
                          <!-- MENU THUMB -->
                          <div class="menu-thumb">
-                              <a href="images/menu-image3.jpg" class="image-popup" title="Chinese Noodle">
-                                   <img src="images/menu-image3.jpg" class="img-responsive" alt="">
+                              <a href="images/Parkir1.jpg" class="image-popup" title="Parkir 1">
+                                   <img src="images/Parkir1.jpg" class="img-responsive" alt="">
                                    <div class="menu-info">
                                         <div class="menu-item">
                                              <h3>Tempat Parkir</h3>
@@ -281,49 +285,50 @@
                     </div>
 
                     <div class="col-md-4 col-sm-6">
+                    
                          <!-- MENU THUMB -->
                          <div class="menu-thumb">
-                              <a href="images/menu-image4.jpg" class="image-popup" title="Rice Soup">
-                                   <img src="images/menu-image4.jpg" class="img-responsive" alt="">
+                              <a href="images/Caffe" class="image-popup" title="Caffe">
+                                   <img src="images/Caffe.jpg" class="img-responsive" alt="">
+                                   <div class="menu-info">
+                                        <div class="menu-item">
+                                             <h3>Caffe </h3>
+                                             <p>Fasilitas toilet di restoran ini selalu terjaga kebersihannya. Tersedia air bersih, sabun cuci tangan, dan tisu untuk kenyamanan pelanggan, disediakan juga toilet wanita dan pria.</p>
+                                        </div>
+                                        <div class="menu-price">
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                       
+                     <!-- MENU THUMB -->
+                         <div class="menu-thumb">
+                              <a href="images/Tempat_Makanan2.jpg" class="image-popup" title="Tempat Makan">
+                                   <img src="images/Tempat_Makan2.jpg" class="img-responsive" alt="">
+                                   <div class="menu-info">
+                                        <div class="menu-item">
+                                             <h3>Tempat Makan</h3>
+                                             <p>Fasilitas toilet di restoran ini selalu terjaga kebersihannya. Tersedia air bersih, sabun cuci tangan, dan tisu untuk kenyamanan pelanggan, disediakan juga toilet wanita dan pria.</p>
+                                        </div>
+                                        <div class="menu-price">
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                     <!-- MENU THUMB -->
+                         <div class="menu-thumb">
+                              <a href="images/Toilet.jpg" class="image-popup" title="Toilet">
+                                   <img src="images/Toilet.jpg" class="img-responsive" alt="">
                                    <div class="menu-info">
                                         <div class="menu-item">
                                              <h3>Toilet</h3>
-                                             <p>Fasilitas toilet di restoran ini selalu terjaga kebersihannya. Tersedia air bersih, sabun cuci tangan, dan tisu untuk kenyamanan pelanggan.</p>
-                                        </div>
-                                        <div class="menu-price">
-                                        </div>
-                                   </div>
-                              </a>
-                         </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                         <!-- MENU THUMB -->
-                         <div class="menu-thumb">
-                              <a href="images/menu-image5.jpg" class="image-popup" title="Project title">
-                                   <img src="images/menu-image5.jpg" class="img-responsive" alt="">
-                                   <div class="menu-info">
-                                        <div class="menu-item">
-                                             <h3>Saung Makan</h3>
-                                             <p>Menikmati hidangan di saung dengan suasana khas pedesaan yang asri dan sejuk.
-                                                Saung yang nyaman dan luas ini cocok untuk berkumpul bersama keluarga maupun teman sambil menikmati makanan khas Saung Abah.</p>
-                                        </div>
-                                        <div class="menu-price">
-                                        </div>
-                                   </div>
-                              </a>
-                         </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                         <!-- MENU THUMB -->
-                         <div class="menu-thumb">
-                              <a href="images/menu-image6.jpg" class="image-popup" title="Project title">
-                                   <img src="images/menu-image6.jpg" class="img-responsive" alt="">
-                                   <div class="menu-info">
-                                        <div class="menu-item">
-                                             <h3>Big Flat Fried</h3>
-                                             <p>Pepper / Crispy</p>
+                                             <p>Fasilitas toilet di restoran ini selalu terjaga kebersihannya. Tersedia air bersih, sabun cuci tangan, dan tisu untuk kenyamanan pelanggan, disediakan juga toilet wanita dan pria.</p>
                                         </div>
                                         <div class="menu-price">
                                         </div>
@@ -349,26 +354,26 @@
                     <div class="col-md-offset-2 col-md-8 col-sm-12">
                          <div class="owl-carousel owl-theme">
                               <div class="item">
-                                   <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis interdum ullamcorper nulla non.</p>
+                                   <p>Ulasan untuk testimoni restaurant saung abah sukabumi</p>
                                         <div class="tst-author">
-                                             <h4>Digital Carlson</h4>
-                                             <span>Pharetra quam sit amet</span>
+                                             <h4>M.Alwi Sihab</h4>
+                                             <span>Teknik Informatika</span>
                                         </div>
                               </div>
 
                               <div class="item">
-                                   <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed vestibulum orci quam.</p>
+                                   <p>Slide dua untuk kalimat lanjut testimonial saung abah sukabumi.</p>
                                         <div class="tst-author">
-                                             <h4>Johnny Stephen</h4>
-                                             <span>Magna nisi porta ligula</span>
+                                             <h4>Ikhsan Muttaqin</h4>
+                                             <span>Teknik Informatika</span>
                                         </div>
                               </div>
 
                               <div class="item">
-                                   <p>Vivamus aliquet felis eu diam ultricies congue. Morbi porta lorem nec consectetur porta quis dui elit habitant morbi.</p>
+                                   <p>Tempatnya nyaman, Makanananya enak, Luass dan ramah ramah </p>
                                         <div class="tst-author">
-                                             <h4>Jessie White</h4>
-                                             <span>Vitae lacinia augue urna quis</span>
+                                             <h4>Akbar Sihab</h4>
+                                             <span>Teknik Informatika</span>
                                         </div>
                               </div>
                          </div>
@@ -388,36 +393,14 @@
                     </div>
 
                     <div class="col-md-6 col-sm-12">
-                         <div class="col-md-12 col-sm-12">
-                              <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
-                                   <h2>Kontak Kami</h2>
-                              </div>
+                         <div class="col-md-6 col-sm-12">
+                              <div class="section-title wow fadeInUp" data-wow-delay="0.1s">                              </div>
                          </div>
 
                          <!-- CONTACT FORM -->
-                         <form action="#" method="post" class="wow fadeInUp" id="contact-form" role="form" data-wow-delay="0.8s">
-                              <!-- IF MAIL SENT SUCCESSFUL  // connect this with custom JS -->
-                              <h6 class="text-success">Your message has been sent successfully.</h6>
-
-                              <!-- IF MAIL NOT SENT -->
-                              <h6 class="text-danger">E-mail must be valid and message must be longer than 1 character.</h6>
-
-                              <div class="col-md-6 col-sm-6">
-                                   <input type="text" class="form-control" id="cf-name" name="name" placeholder="Full name">
-                              </div>
-
-                              <div class="col-md-6 col-sm-6">
-                                   <input type="email" class="form-control" id="cf-email" name="email" placeholder="Email address">
-                              </div>
-
-                              <div class="col-md-12 col-sm-12">
-                                   <input type="text" class="form-control" id="cf-subject" name="subject" placeholder="Subject">
-
-                                   <textarea class="form-control" rows="6" id="cf-message" name="message" placeholder="Tell about your project"></textarea>
-
-                                   <button type="submit" class="form-control" id="cf-submit" name="submit">Send Message</button>
-                              </div>
-                         </form>
+                          <a href="images/cafeandrestaurant.jpg" class="image-popup" title="cafe">
+                          <img src="images/cafeandrestaurant.jpg" class="img-responsive" alt="">                         
+                         </div>
                     </div>
                </div>
           </div>
@@ -444,7 +427,8 @@
                                    <h2 class="wow fadeInUp" data-wow-delay="0.2s">Informasi</h2>
                               </div>
                               <address class="wow fadeInUp" data-wow-delay="0.4s">
-                                   <p>090-080-0650 | 090-070-0430</p>
+                                   <p>+62 897-9831-000</p>
+                                   <p>Whatsapp</p>
                                    <p><a href="mailto:info@company.com">info@company.com</a></p>
                                    <p>Instagram: @saungabahrestocafe </p>
                               </address>
@@ -466,16 +450,21 @@
                          </div>
                     </div>
 
-                    <div class="col-md-2 col-sm-4">
-                         <ul class="wow fadeInUp social-icon" data-wow-delay="0.4s">
-                              <li><a href="#" class="fa fa-instagram"></a></li>
-                              <li><a href="#" class="fa fa-google"></a></li>
-                         </ul>
+                   <div class="col-md-2 col-sm-4">
+    <ul class="wow fadeInUp social-icon" data-wow-delay="0.4s">
+        <li>
+            <a href="https://www.instagram.com/saungabahrestocafe" target="_blank" class="fa fa-instagram"></a>
+        </li>
+        <li>
+            <a href="https://www.google.com/search?q=Saung+Abah+Sukabumi" class="fa fa-google"></a>
+        </li>
+    </ul>
 
-                         <div class="wow fadeInUp copyright-text" data-wow-delay="0.8s">
-                              <p><br>Copyright &copy; 2025 <br>Saung Abah SUKABUMI
-                              </div>
-                    </div>
+    <div class="wow fadeInUp copyright-text" data-wow-delay="0.8s">
+        <p><br>Copyright &copy; 2025 <br>Saung Abah SUKABUMI</p>
+    </div>
+</div>
+
                </div>
           </div>
      </footer>

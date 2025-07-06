@@ -26,6 +26,29 @@
                     </select>
                 </div>
 
+<!-- Kategori Makanan -->
+<div class="form-group mb-3">
+    <label for="kategori">Kategori Makanan</label>
+    <select name="kategori" id="kategori" class="form-control" required>
+        <option value="">-- Pilih Kategori --</option>
+        <option value="sunda" {{ $produk->kategori == 'sunda' ? 'selected' : '' }}>Makanan Sunda</option>
+        <option value="cina" {{ $produk->kategori == 'cina' ? 'selected' : '' }}>Masakan Cina</option>
+        <option value="barat" {{ $produk->kategori == 'indonesia' ? 'selected' : '' }}>Masakan Indonesia</option>
+    </select>
+</div>
+
+<!-- Paket -->
+<div class="form-group mb-3">
+    <label for="paket">Tipe Paket</label>
+    <select name="paket" id="paket" class="form-control" required>
+        <option value="">-- Pilih Paket --</option>
+        <option value="paket_a" {{ $produk->paket == 'paket_a' ? 'selected' : '' }}>Paket A</option>
+        <option value="paket_b" {{ $produk->paket == 'paket_b' ? 'selected' : '' }}>Paket B</option>
+        <option value="ala_carte" {{ $produk->paket == 'tanpa_paket' ? 'selected' : '' }}>Tanpa Paket</option>
+    </select>
+</div>
+
+
                 <!-- Status Produk -->
                 <div class="form-group mb-3">
                     <label for="status">Status Produk</label>

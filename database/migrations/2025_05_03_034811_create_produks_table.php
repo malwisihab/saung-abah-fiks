@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('foto');
             $table->enum('status', ['aktif', 'tidak_aktif'])->default('aktif'); // Status produk
             $table->text('deskripsi')->nullable();
+            $table->string('kategori')->nullable();
+            $table->string('paket')->nullable();
             $table->timestamps();
         });
     }

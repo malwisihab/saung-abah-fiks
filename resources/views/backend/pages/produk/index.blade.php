@@ -38,8 +38,11 @@
                                 <th>ID</th>
                                 <th>Nama</th>
                                 <th>Jenis</th>
+                                <th>Kategori</th> <!-- Tambahan -->
+                                <th>Paket</th>    <!-- Tambahan -->
                                 <th>Status</th>
                                 <th>Harga</th>
+                                <th>Deskripsi</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -71,23 +74,27 @@
                 "next": "Berikutnya"
             }
         },
-        columns: [
-            {
-                data: null,
-                render: function(data, type, row, meta) {
-                    return meta.row + 1; // Nomor urut
-                },
-                name: 'nomor_urut',
-                orderable: false,
-                searchable: false
-            },
-            { data: 'id', name: 'id' },
-            { data: 'nama', name: 'nama' },
-            { data: 'jenis', name: 'jenis' },
-            { data: 'status', name: 'status' },
-            { data: 'harga', name: 'harga' },
-            { data: 'aksi', name: 'aksi', orderable: false, searchable: false }
-        ]
+       columns: [
+    {
+        data: null,
+        render: function(data, type, row, meta) {
+            return meta.row + 1;
+        },
+        name: 'nomor_urut',
+        orderable: false,
+        searchable: false
+    },
+    { data: 'id', name: 'id' },
+    { data: 'nama', name: 'nama' },
+    { data: 'jenis', name: 'jenis' },
+    { data: 'kategori', name: 'kategori' }, // ✅
+    { data: 'paket', name: 'paket' },       // ✅
+    { data: 'status', name: 'status' },     // ✅
+    { data: 'harga', name: 'harga' },
+    { data: 'deskripsi', name: 'deskripsi' },
+    { data: 'aksi', name: 'aksi', orderable: false, searchable: false }
+]
+
     });
 
     @if(session('success'))

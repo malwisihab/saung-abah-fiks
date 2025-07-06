@@ -26,8 +26,10 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('/dashboard');
 
-
-
+// Halaman Informasi Detail Saung (Informasi saja)
+Route::get('/detail-saung', function () {
+    return view('detail-saung');
+})->name('detail.saung');
 
 // Tambahan route reservasi
 Route::get('/reservasi', function () {
@@ -36,6 +38,7 @@ Route::get('/reservasi', function () {
 
 Route::get('pemesanan/create', [PemesananController::class, 'create'])->name('pemesanans.create');
 Route::post('/pemesanans', [PemesananController::class, 'store'])->name('pemesanans.store');
+
 // web.php
 Route::get('/scan-meja', [PemesananController::class, 'handleQr'])->name('pemesanan.qr');
 

@@ -16,5 +16,7 @@ class Produk extends Model
         'foto',
         'status',
         'deskripsi',
+        'kategori',
+        'paket', 
     ];
 }
