@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('loginV2/vendor/select2/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('loginV2/css/util.css') }}">
     <link rel="stylesheet" href="{{ asset('loginV2/css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
 
     <style>
@@ -38,9 +38,9 @@ body::before {
     height: 100%;
     background: url('/images/cafeandrestaurant.jpg') no-repeat center center fixed;
     background-size: cover;
-    filter: blur(4px); 
-    -webkit-filter: blur(0.5px); 
-    z-index: -1; 
+    filter: blur(4px);
+    -webkit-filter: blur(0.5px);
+    z-index: -1;
 }
 
 .wrap-login100 {
@@ -51,6 +51,7 @@ body::before {
     border: 1px solid rgba(0, 0, 0, 0.1);
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
+    position: relative;
 }
 
 /* Ensure other styles remain if they are affected */
@@ -60,6 +61,7 @@ body::before {
 
 .login100-form-title {
     color: #1C1D33;
+    /* Removed flex properties as home button is no longer here */
 }
 
 .login100-form-btn {
@@ -80,6 +82,54 @@ body::before {
     color: #1C1D33;
 }
 
+/* New style for the home button at the bottom */
+.home-button-bottom {
+    display: inline-block;
+    padding: 8px 15px; /* Adjust padding to make it look like a button */
+    background-color: rgb(200, 1, 1); /* Button background color */
+    color: #ffffff !important; /* Text color */
+    border-radius: 5px; /* Rounded corners for the button */
+    text-decoration: none;
+    font-size: 14px; /* Adjust font size */
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1; /* Align text and icon vertically */
+    margin-top: 20px; /* Add some space above the button */
+}
+
+.home-button-bottom i {
+    margin-right: 5px; /* Space between icon and text */
+}
+
+.home-button-bottom:hover {
+    background-color: #15162b; /* Hover background color */
+    color: #ffffff;
+}
+
+/* Removed the home-button-header styles as it's no longer used */
+/* .home-button-header {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: rgb(200, 1, 1);
+    color: #ffffff !important;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 10;
+    line-height: 1;
+}
+
+.home-button-header i {
+    margin-right: 5px;
+}
+
+.home-button-header:hover {
+    background-color: #15162b;
+    color: #ffffff;
+} */
 
     </style>
 </head>
@@ -119,7 +169,7 @@ body::before {
                     @csrf
                     <span class="login100-form-title">
                         Login
-                    </span>
+                        </span>
 
                     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                         <input class="input100" type="email" name="email" placeholder="Email" required autofocus value="{{ old('email') }}">
@@ -150,12 +200,17 @@ body::before {
                     </div>
 
                     <div class="text-center p-t-12">
-                        <span class="txt1">Login Assistance:</span>
                         <a class="txt2" href="#">Lupa password?</a>
                     </div>
 
                     <div class="text-center p-t-136">
-                        <span class="txt2">Akses hanya untuk Administrator</span>
+                        <span class="txt2">Akses hanya untuk Admin</span>
+                    </div>
+
+                    <div class="text-center p-t-20">
+                        <a class="home-button-bottom" href="{{ url('/') }}">
+                            <i class="fa fa-home" aria-hidden="true"></i>Kembali ke Beranda
+                        </a>
                     </div>
 
                 </form>

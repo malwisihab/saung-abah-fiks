@@ -44,7 +44,7 @@
         <option value="">-- Pilih Paket --</option>
         <option value="paket_a" {{ $produk->paket == 'paket_a' ? 'selected' : '' }}>Paket A</option>
         <option value="paket_b" {{ $produk->paket == 'paket_b' ? 'selected' : '' }}>Paket B</option>
-        <option value="ala_carte" {{ $produk->paket == 'tanpa_paket' ? 'selected' : '' }}>Tanpa Paket</option>
+        <option value="tanpa_paket" {{ $produk->paket == 'tanpa_paket' ? 'selected' : '' }}>Tanpa Paket</option>
     </select>
 </div>
 

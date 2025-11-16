@@ -54,7 +54,7 @@
         <option value="">-- Pilih Paket --</option>
         <option value="paket_a">Paket A</option>
         <option value="paket_b">Paket B</option>
-        <option value="ala_carte">Tanpa Paket</option>
+        <option value="tanpa_paket">Tanpa Paket</option>
     </select>
 </div>
 

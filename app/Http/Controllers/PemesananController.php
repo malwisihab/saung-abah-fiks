@@ -9,6 +9,7 @@ use App\Models\Produk;
 use App\Models\Meja;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\DB;
 
 
 class PemesananController extends Controller
@@ -116,25 +117,33 @@ public function index(Request $request)
 
 
   public function create(Request $request)
-    {
-        $produk = Produk::all();  // Ambil semua produk
-        $meja = Meja::all();      // Ambil semua meja
-        $selectedMejaId = $request->query('meja_id'); // Ambil meja_id dari URL jika ada
-
-        return view('pemesanan.create', compact('produk', 'meja', 'selectedMejaId'));
-    }
+{
+    $produk = Produk::all();
+    $meja = Meja::all();
+    $selectedMejaId = $request->query('meja_id')?? session('meja_id');
+    
+    // Ambil pesanan pending HANYA untuk meja yang dipilih
+    $pendingOrders = Pemesanans::with(['meja', 'details.produk'])
+        ->where('status', 'pending')
+        ->when($selectedMejaId, function($query) use ($selectedMejaId) {
+            return $query->where('meja_id', $selectedMejaId);
+        })
+        ->latest()
+        ->get();
+    
+    return view('pemesanan.create', compact('produk', 'meja', 'selectedMejaId', 'pendingOrders'));
+}
 
 
 public function store(Request $request)
 {
-    // Validasi dasar
+    // Validasi tanpa pembayaran
     $request->validate([
         'meja_id' => 'required|exists:mejas,id',
         'produk_id' => 'required|array|min:1',
         'produk_id.*' => 'exists:produks,id',
         'jumlah' => 'required|array|min:1',
         'jumlah.*' => 'integer|min:1',
-        'pembayaran' => 'required|in:online,kasir',
     ]);
 
     // Simpan pemesanan utama
@@ -143,7 +152,7 @@ public function store(Request $request)
         'waktu_pemesanan' => now(),
         'total_harga' => 0,
         'status' => 'pending',
-        'pembayaran' => $request->pembayaran,
+        'pembayaran' => 'kasir', // Default value jika dihilangkan
     ]);
 
     // Hitung total harga dan simpan detail pemesanan
@@ -170,21 +179,8 @@ public function store(Request $request)
     // Update total harga pemesanan
     $pemesanan->update(['total_harga' => $totalHarga]);
 
-    if ($request->pembayaran === 'online') {
-        $pemesanan->update([
-            'payment_status' => 'pending',
-            'snap_token' => 'ORDER-' . $pemesanan->id . '-' . time()
-        ]);
-
-        // Redirect ke halaman pembayaran Midtrans
-        return redirect()->route('payment.create', ['pemesanan_id' => $pemesanan->id])
-            ->with('success', 'Pemesanan berhasil dibuat! Silakan lakukan pembayaran.');
-    }
-
-    // Jika pembayaran di kasir
     return back()->with('success', 'Pemesanan berhasil dibuat! Silakan bayar di kasir setelah selesai.');
 }
-
 
 
     public function destroy($id)
@@ -212,9 +208,44 @@ public function store(Request $request)
     public function handleQr(Request $request)
     {
         $mejaId = $request->meja_id;
+        if ($mejaId){
+            session(['meja_id' => $mejaId]);
+        }
+
         return redirect()->route('pemesanans.create', ['meja_id' => $mejaId]);
     }
 
 
+public function complete(Request $request)
+{
+    $request->validate([
+        'meja_id' => 'required|exists:mejas,id',
+        'pemesanan_ids' => 'required|array',
+        'pemesanan_ids.*' => 'exists:pemesanans,id'
+    ]);
+
+    try {
+        DB::beginTransaction();
+
+        // Update status semua pesanan yang dipilih
+        
+        Pemesanans::whereIn('id', $request->pemesanan_ids)
+            ->update(['status' => 'completed']);
+
+        DB::commit();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Pesanan berhasil diselesaikan'
+        ]);
+        
+    } catch (\Exception $e) {
+        DB::rollBack();
+        return response()->json([
+            'success' => false,
+            'message' => 'Gagal menyelesaikan pesanan: ' . $e->getMessage()
+        ], 500);
+    }
+}
 
 }

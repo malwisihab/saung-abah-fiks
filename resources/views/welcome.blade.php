@@ -386,6 +386,15 @@
      <section id="contact" data-stellar-background-ratio="0.5">
           <div class="container">
                <div class="row">
+                    <div class="row">
+               <div class="col-md-12 col-sm-12 text-center">
+                    <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                         <h2>Lokasi & Alamat Kami</h2>
+                         <p>Temukan kami dengan mudah menggunakan peta di bawah ini</p>
+                    </div>
+               </div>
+          </div>
+
                     <div class="wow fadeInUp col-md-6 col-sm-12" data-wow-delay="0.4s">
                          <div id="google-map">
                               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.0330029102115!2d106.94042007499617!3d-6.886650393112347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e684995c9772ee5%3A0xd4e3a53d33f4d066!2sSaung%20Abah!5e0!3m2!1sen!2sid!4v1742438195569!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -418,6 +427,14 @@
                               <address class="wow fadeInUp" data-wow-delay="0.4s">
                                    <p>Jl. Salabintana KM. 5, Sudajaya Girang, Kab. Sukabumi, Kabupaten Sukabumi, Jawa Barat 43151</p>
                               </address>
+                              <ul class="wow fadeInUp social-icon" data-wow-delay="0.4s">
+        <li>
+            <a href="https://www.instagram.com/saungabahrestocafe" target="_blank" class="fa fa-instagram"></a>
+        </li>
+        <li>
+            <a href="https://www.google.com/search?q=Saung+Abah+Sukabumi" class="fa fa-google"></a>
+        </li>
+    </ul>
                          </div>
                     </div>
 
@@ -429,7 +446,7 @@
                               <address class="wow fadeInUp" data-wow-delay="0.4s">
                                    <p>+62 897-9831-000</p>
                                    <p>Whatsapp</p>
-                                   <p><a href="mailto:info@company.com">info@company.com</a></p>
+                                   <p><a href="mailto:saungabah@gmail.com">saungabah@gmail.com</a></p>
                                    <p>Instagram: @saungabahrestocafe </p>
                               </address>
                          </div>
@@ -451,17 +468,8 @@
                     </div>
 
                    <div class="col-md-2 col-sm-4">
-    <ul class="wow fadeInUp social-icon" data-wow-delay="0.4s">
-        <li>
-            <a href="https://www.instagram.com/saungabahrestocafe" target="_blank" class="fa fa-instagram"></a>
-        </li>
-        <li>
-            <a href="https://www.google.com/search?q=Saung+Abah+Sukabumi" class="fa fa-google"></a>
-        </li>
-    </ul>
+    
 
-    <div class="wow fadeInUp copyright-text" data-wow-delay="0.8s">
-        <p><br>Copyright &copy; 2025 <br>Saung Abah SUKABUMI</p>
     </div>
 </div>
 

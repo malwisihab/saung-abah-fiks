@@ -7,6 +7,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\MejaController;
 use App\Http\Controllers\PaymentController;
 
+use App\Http\Controllers\CompletedPemesananController;
 use App\Http\Controllers\PemesananController;
 
 /*
@@ -31,10 +32,7 @@ Route::get('/detail-saung', function () {
     return view('detail-saung');
 })->name('detail.saung');
 
-// Tambahan route reservasi
-Route::get('/reservasi', function () {
-    return view('reservasi');
-})->name('reservasi');
+
 
 Route::get('pemesanan/create', [PemesananController::class, 'create'])->name('pemesanans.create');
 Route::post('/pemesanans', [PemesananController::class, 'store'])->name('pemesanans.store');
@@ -42,6 +40,16 @@ Route::post('/pemesanans', [PemesananController::class, 'store'])->name('pemesan
 // web.php
 Route::get('/scan-meja', [PemesananController::class, 'handleQr'])->name('pemesanan.qr');
 
+Route::post('/pemesanans/complete', [PemesananController::class, 'complete'])->name('pemesanans.complete');
+
+
+         // Untuk menampilkan form
+// Route::get('/pemesanans/{meja}/complete', [CompletedPemesananController::class, 'showCompleteForm'])
+//      ->name('pemesanans.complete.form');
+
+// // Untuk proses submit
+// Route::post('/pemesanans/complete', [CompletedPemesananController::class, 'complete'])
+//      ->name('pemesanans.complete');
 
     // Route pembayaran
     Route::get('/payment/{pemesanan_id}/create', [PaymentController::class, 'create'])
@@ -61,6 +69,7 @@ Route::middleware('auth')->group(function () {
     Route::get('pemesanan/{id}/edit', [PemesananController::class, 'edit'])->name('pemesanans.edit');
     Route::put('pemesanan/{id}', [PemesananController::class, 'update'])->name('pemesanans.update');
     Route::delete('pemesanan/{id}', [PemesananController::class, 'destroy'])->name('pemesanans.destroy');
+    
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

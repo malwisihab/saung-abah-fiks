@@ -35,6 +35,8 @@
                     <table id="tabel_produk" class="table">
                         <thead>
                             <tr>
+                                <th>No</th>
+                                
                                 <th>ID</th>
                                 <th>Nama</th>
                                 <th>Jenis</th>
